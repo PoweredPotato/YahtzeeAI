@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Yahtzee Solitaire</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+     h1 {
+            /* background-color:hsl(221, 100%, 50%); */
+            border:2px solid white;
+            font-size: 4em;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    h2 {
+        font-size: 3em;
+        color: white;
+    }
+        ul, ol {
+            /* border:2px solid black; */
+            /* padding: 3px; 
+            margin: 40px; */
+            font-size: 2em;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p {
+            /* border:2px solid black; */
+            /* padding: 3px;  */
+            margin: 0px;
+            font-size: 1em;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a:link, a:visited {
+            /* background-color: blue; */
+            color: blue;
+            padding: 30px 150px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            /* font-size: 2em; */
+        }
+        /* body {
+            background-image: url('dice.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        } */
+        table, th, td {
+            border:1px solid black
+            /* padding: 2px; */
+            /* border-collapse: collapse; */
+        }
+        table {
+            background-color: white;
+        }
+        th {
+            text-align: left;
+        }
+        table {
+            border-spacing: 5px;
+        }
+        img {
+            width: 25px;
+            height: 25px;
+        }
+        button {
+            background-image: url(trayTable.PNG);
+            display: inline-block;
+            width: 125px;
+            height: 50px;
+            font-size: 1em;
+            color: white;
+        }
+        button:disabled,
+        button[disabled] {
+            background-color: black;
+            display: inline-block;
+            width: 125px;
+            height: 50px;
+            font-size: 1em;
+            color: white;
+        }
+        button:hover {
+
+        }
+        body{
+            background-image: url('trayTable.PNG');
+            background-repeat: repeat;
+            background-size: cover;
+            /* background-attachment: fixed; */
+        } 
+        table img{
+            box-shadow: 2px 2px 2px black;
+            margin-right: 2px;
+        }
+        .scorelabel{
+            display: inline-block; 
+            width: 3em;
+        }
+        #diceroll, #dicekeep{
+            height: 30px;
+        } #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: white;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+</head>
+<meta name="viewport" content="width=1700px, initial-scale=1.0">
+<body>
+    <h1>Yahtzee Solitaire</h1>
+<input type="text" placeholder="Type your name here:" id="myInput">
+<table style="width:50%; float:left;">
+<tr>
+    <th>Scoretype</th>
+    <th>Score</th>
+    <th>Dice</th>
+</tr>
+<tr>
+    <td>Upper Scoring</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td><span class="scorelabel">Aces</span> <img src="dieFace1.PNG"/> = 1</td>
+    <td id="Aces">0</td>
+    <td id="roll1" class="roll"></td>
+</tr>
+<tr>
+    <td><span class="scorelabel">Twos</span> <img src="dieFace2.PNG"/> = 2</td>
+    <td id="Twos">0</td>
+    <td id="roll2" class="roll"></td>
+</tr>
+<tr>
+    <td><span class="scorelabel">Threes</span> <img src="dieFace3.PNG"/> = 3</td>
+    <td id="Threes">0</td>
+    <td id="roll3" class="roll"></td>
+</tr>
+<tr>
+    <td><span class="scorelabel">Fours</span> <img src="dieFace4.PNG"/> = 4</td>
+    <td id="Fours">0</td>
+    <td id="roll4" class="roll"></td>
+</tr>
+<tr>
+    <td><span class="scorelabel">Fives</span> <img src="dieFace5.PNG"/> = 5</td>
+    <td id="Fives">0</td>
+    <td id="roll5" class="roll"></td>
+</tr>
+<tr>
+    <td><span class="scorelabel">Sixes</span> <img src="dieFace6.PNG"/> = 6</td>
+    <td id="Sixes">0</td>
+    <td id="roll6" class="roll"></td>
+</tr>
+<tr>
+    <td>Lower Scoring</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>3 of a Kind</td>
+    <td id="3ofaKind">0</td>
+    <td id="roll7" class="roll"></td>
+</tr>
+<tr>
+    <td>4 of a Kind</td>
+    <td id="4ofaKind">0</td>
+    <td id="roll8" class="roll"></td>
+</tr>
+<tr>
+    <td>Full House</td>
+    <td id="FullHouse">0</td>
+    <td id="roll9" class="roll"></td>
+</tr>
+<tr>
+    <td>Small Strait</td>
+    <td id="SmallStrait">0</td>
+    <td id="roll10" class="roll"></td>
+</tr>
+<tr>
+    <td>Large Strait</td>
+    <td id="LargeStrait">0</td>
+    <td id="roll11" class="roll"></td>
+</tr>
+<tr>
+    <td>Yahtzee</td>
+    <td id="Yahtzee">0</td>
+    <td id="roll12" class="roll"></td>
+</tr>
+<tr>
+    <td>Bonus Yahtzee</td>
+    <td id="bonus"></td>
+    <td></td>
+</tr>
+<tr>
+    <td>Chance</td>
+    <td id="Chance">0</td>
+    <td id="roll13" class="roll"></td>
+</tr>
+</table>
+<h2 id="turn">Turn</h2>
+<p>Dice to Re-Roll</p>
+<div id="diceroll" style="width: 50%; float: right;"></div>
+<br>
+<p>Dice to Keep</p>
+<div id="dicekeep" style="width: 50%; float: right;"></div>
+<br>
+<button id="rollButton"onclick="rollDice()">Generate Roll</button>
+<button id="reRollButton"onclick="reRoll()">Re-Roll</button>
+<div id="buttons"style="width: 50%; float: right; background-color: white;"></div>
+<button id="Btn3ofaKind"onclick="getValue(this.id)">3 of a Kind</button>
+<br>
+<button id="BtnAces" onclick="getValue(this.id)">Aces</button>
+<button id="BtnTwos" onclick="getValue(this.id)">Twos</button>
+<button id="BtnThrees" onclick="getValue(this.id)">Threes</button>
+<br>
+<button id="BtnFours" onclick="getValue(this.id)">Fours</button>
+<button id="BtnFives" onclick="getValue(this.id)">Fives</button>
+<button id="BtnSixes" onclick="getValue(this.id)">Sixes</button>
+<br>
+<button id="BtnFullHouse" onclick="getValue(this.id)">Full House</button>
+<button id="BtnSmallStrait" onclick="getValue(this.id)">Small Strait</button>
+<button id="BtnLargeStrait" onclick="getValue(this.id)">Large Strait</button>
+<br>
+<button id="BtnYahtzee"onclick="getValue(this.id)">Yahtzee</button>
+<button id="BtnChance"onclick="getValue(this.id)">Chance</button>
+<button id="Btn4ofaKind"onclick="getValue(this.id)">4 of a Kind</button>
+<br>
+<button type="button"id="submitGame"onclick="finishGame()">Submit Game</button>
+
+<div id="submitModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 style=color:black;>Thank You For Playing!</h1>
+        <p style=color:black;>Your game data has been submitted for training, if you would like to play again, simply click away and generate a new roll.</p>
+    </div>
+</div>
+<!-- <button value="noVal"onclick="getValue(this.value)">No Value</button> -->
+<hr style="clear: both;">
+<meta name="viewport" content="width=700px, initial-scale=1.0">
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>
+    // NOTE: dataList stores all dice values that are taken from dice, recording a 
+    // user's decision to keep or re-roll a dice of a certain face
+    var gameFinished = false;
+    var scoreListVal;
+    var scoreTypes = ["Aces", "Twos", "Threes", "Fours", "Fives", "Sixes", "SmallStrait", "LargeStrait", "Yahtzee", "Chance", "3ofaKind", "4ofaKind", "FullHouse"];
+    var val;
+    //these booleans will determine which buttons are re-enabled after roll is generated
+    var buttonBools = ["BtnAces", "BtnTwos", "BtnThrees", "BtnFours", "BtnFives", "BtnSixes", "BtnSmallStrait", "BtnLargeStrait", "BtnYahtzee", "BtnChance", "Btn3ofaKind", "Btn4ofaKind", "BtnFullHouse", "reRollButton"];
+    //this loop fills buttonBools with "true" values for each category
+    var i;
+    var dataListS = [];
+    var dataListL = [];
+    var name;
+    var date;
+    let score;
+    // NOTE: "dataListT" is a list that stores all scoretypes numerically corresponding to their place on the scoresheet
+    var dataListT = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+    var yahtzeeCount = 0;
+    var totalScore = 0;
+    var dice = [];
+    var keep = [];
+    var valid;
+    let turn = 0;
+    let rollCount = 0;
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let game = {
+        player: "Name",
+        date: date,
+        scoresheet: [
+        ],
+        rolls: [
+        ],
+        clear: function() {
+            this.player = "Name";
+            this.date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            this.scoresheet = [];
+            this.rolls = [];
+        }
+    };
+    
+/*
+            1s  2s  3s  4s  5s  6s ... d1   D2  D3  d4  d5  r1  r2  r3  r4  r5  throw
+            0   0   0   0   0   0   0   6   6   5   5   3   0   0   1   1   1   1
+            0   0   0   0   0   0   0   6   6   6   6   3   0   0   0   0   1   2
+            
+
+*/ 
+    // $(':button').prop('disabled', true);
+    function enableSubmit(){
+        $(':button').prop('disabled', true);
+        $("#rollButton").attr("disabled", false);
+    }
+    enableSubmit()
+    function updateObject(){
+        game.player = name;
+        game.date = date;
+        if(rollCount == 1){
+            game.rolls.push({turn: turn, roll: rollCount, dice: dice, diceRethrown: dataListS});
+        } 
+        else if(rollCount == 2){ 
+            game.rolls.push({turn: turn, roll: rollCount, dice: (dice+keep), diceRethrown: dataListS});
+        }
+        else if(rollCount == 3){
+            game.rolls.push({turn: turn, roll: rollCount, dice: (keep), scoreType: val})
+        }
+        (game.scoresheet).push({scoreType: val, dice: keep, score: score});
+        game.player = document.getElementById("myInput").value;
+        game.date = 2020;
+    }
+  
+    function gatherData(){
+            console.log(dice);
+            dataListS = [];
+            var i;
+            var num = 0;
+            dataListS.push("Turn " + (turn + 1));
+            dataListS.push((dataListT));
+            console.log(dataListS[1]);
+            for(i = 0; i < dice.length; i++){
+                num = parseInt(dice[i][7], 10);
+                dataListS.push(num);
+            }
+            dataListL.push(dataListS);
+            console.log(dataListL);
+            for(i = 0; i < dataListL.length; i++){
+                console.log(dataListL[i]);
+            }
+        }
+    function rollDice(){
+        console.log(buttonBools);
+        //BUTTON MUST DISABLE
+        $('#rollButton').prop('disabled', true);
+        rollCount = 0;
+        rollCount = rollCount + 1;
+        console.log(rollCount);
+        var i;
+        for(i = 0; i < 5; i++){
+            x = Math.floor(Math.random() * 6) + 1;
+            dice.push(`dieFace${x}.PNG`);
+        }
+        drawRoll();
+        // const rollButton = document.getElementById('rollButton')
+        // rollButton.disabled = true
+        for(i = 0; i < buttonBools.length; i++){
+            $(`#${buttonBools[i]}`).prop("disabled", false);
+        }
+        var gameFinished = false;
+        updateObject();
+    }
+    function toReRoll(){
+        let index = this.getAttribute("data-index");
+        dice.push(keep[index]);
+        keep.splice(index, 1);
+        console.log(dice, keep)
+        drawRoll();
+        drawKeep();
+    }
+
+    function keepDie() {
+         let index = this.getAttribute("data-index");
+        keep.push(dice[index]);
+        dice.splice(index, 1);
+        console.log(dice, keep)
+        drawRoll();
+        drawKeep();
+    }
+
+    function drawRoll() {
+        if(keep.length == 5){
+        console.log("Hello")
+        const reRollButton = document.getElementById('reRollButton')
+        reRollButton.disabled = true
+    }
+        let container = document.getElementById("diceroll");
+        container.innerHTML = "";
+        for (let i = 0; i < dice.length; i++){
+            let diceImg = document.createElement("img");
+            diceImg.setAttribute("src", dice[i]);
+            diceImg.setAttribute("data-index", i);
+            diceImg.addEventListener("click", keepDie);
+            container.append(diceImg);
+        }
+        var z = "Turn " + (turn + 1);
+        document.getElementById("turn").innerHTML = z;
+    }
+
+    function drawKeep() {
+        let container = document.getElementById("dicekeep")
+        container.innerHTML = "";
+        for (let i = 0; i < keep.length; i++){
+            let diceImg = document.createElement("img");
+            diceImg.setAttribute("src", keep[i]);
+            diceImg.setAttribute("data-index", i);
+            diceImg.addEventListener("click", toReRoll);
+            // diceImg.addEventListener("click", test);
+            container.append(diceImg);
+        }
+    }
+
+    function reRoll(){
+        gatherData();
+        rollCount = rollCount + 1;
+        if ((rollCount == 3)){
+            console.log("Re Roll Button Disabled");
+            const reRollButton = document.getElementById('reRollButton')
+            reRollButton.disabled = true
+        }
+        console.log(rollCount);
+        dice = [];
+        drawRoll();
+        drawKeep();
+        for(i = 0; i < (5-keep.length); i++){
+            x = Math.floor(Math.random() * 6) + 1;
+            dice.push(`dieFace${x}.PNG`);
+        }
+        drawRoll();
+        drawKeep();
+        if(turn == 13){
+            $("input[type=button]").attr("disabled", "disabled");
+        updateObject();
+        }  
+    }
+    function upperScoring(givenArray, givenType){
+        var i;
+        var score = 0;
+        for(i = 0; i < (givenArray.length); i++){
+                if(givenArray[i] == givenType){
+                    score = score + givenType;
+                }
+        }
+        return score;
+    }
+    // This function will contain all scoring logic and display values on the scoreboard
+    function getValue(value){
+        console.log("Performing getValue");
+        $('#rollButton').prop('disabled', true);
+        // var rollNum;
+        val = value;
+        var validYahtzee = false;
+        var faceNums = [];
+        var roll;
+        console.log(val);
+        var i;
+        //loop to enable all buttons that haven't been selected
+        for(i = 0; i < dice.length; i++){
+            keep.push(dice[i]);
+        }
+        for(i = 0; i < dice.length; i++){
+            dice.splice(dice[i]);
+        }
+        drawRoll()
+        drawKeep()
+        var x = 0;
+        score = 0;
+        var occur = 0;
+        var numF1 = 0;
+        var numF2 = 0;
+        var numF3 = 0;
+        var numF4 = 0;
+        var numF5 = 0;
+        var numF6 = 0;
+        valid = false;
+        for(i = 0; i < (keep.length); i++){
+            x = parseInt((keep[i])[7], 10);
+            faceNums.push(x);
+        }
+        for(i = 0; i < (faceNums.length); i++){
+            if(faceNums[i] == 1){
+                numF1 += 1;
+            }
+            else if(faceNums[i] == 2){
+                numF2 += 1;
+            }
+            else if(faceNums[i] == 3){
+                numF3 += 1;
+            }
+            else if(faceNums[i] == 4){
+                numF4 += 1;
+            }
+            else if(faceNums[i] == 5){
+                numF5 += 1;
+            }
+            else if(faceNums[i] == 6){
+                numF6 += 1;
+            }
+        }
+        console.log(faceNums);
+        // Upper Scoring conditonals
+        if (val=="BtnAces"){
+            scoreListVal = 0;
+            roll = "roll1";
+            score = upperScoring(faceNums, 1);
+        }
+        else  if (val=="BtnTwos"){
+            scoreListVal = 1;
+            roll = "roll2";
+            score = upperScoring(faceNums, 2);
+        }
+        else  if (val=="BtnThrees"){
+            scoreListVal = 2;
+            roll = "roll3";
+            score = upperScoring(faceNums, 3);
+        }
+        else  if (val=="BtnFours"){
+            scoreListVal = 3;
+            roll = "roll4";
+            score = upperScoring(faceNums, 4);
+        }
+        else  if (val=="BtnFives"){
+            scoreListVal = 4;
+            roll = "roll5";
+            score = upperScoring(faceNums, 5);
+        }
+        else  if (val=="BtnSixes"){
+            scoreListVal = 5;
+            roll = "roll6";
+            score = upperScoring(faceNums, 6);
+        }
+        // Lower Scoring conditionals
+        else if(val=="Btn3ofaKind") {
+            scoreListVal = 10;
+            roll = "roll7";
+            if(numF1 >= 3 || numF2 >= 3 || numF3 >= 3 || numF4 >= 3 || numF5 >= 3|| numF6 >= 3){
+                for(i = 0; i < (faceNums.length); i++){
+                score += faceNums[i];
+                }
+            }
+        }
+        else if(val=="Btn4ofaKind"){
+            scoreListVal = 11;
+            roll = "roll8";
+            if(numF1 >= 4 || numF2 >= 4 || numF3 >= 4 || numF4 >= 4 || numF5 >= 4 || numF6 >= 4){
+                for(i = 0; i < (faceNums.length); i++){
+                score += faceNums[i];
+                }
+            }
+        }
+        else if(val=="BtnChance"){
+            scoreListVal = 9;
+            roll = "roll13";
+            for(i = 0; i < (faceNums.length); i++){
+                score += faceNums[i];
+                }
+        }
+        else if(val=="BtnSmallStrait"){
+            scoreListVal = 6;
+            roll = "roll10";
+            if((numF1 >= 1 && numF2 >= 1 && numF3 >= 1 && numF4 >= 1) || 
+            (numF2 >= 1 && numF3 >= 1 && numF4 >= 1 && numF5 >= 1) ||
+            (numF3 >= 1 && numF4 >= 1 && numF5 >= 1 && numF6 >= 1) ||
+            (numF1 == 1 && numF2 == 1 && numF3 == 1 && numF4 == 1 && numF5 == 1) ||
+            (numF2 == 1 && numF3 == 1 && numF4 == 1 && numF5 == 1 && numF6 == 1)){
+            score = 30;
+            } 
+        }
+        else if(val=="BtnLargeStrait"){
+            scoreListVal = 7;
+            roll = "roll11";
+            if((numF1 == 1 && numF2 == 1 && numF3 == 1 && numF4 == 1 && numF5 == 1) ||
+            (numF2 == 1 && numF3 == 1 && numF4 == 1 && numF5 == 1 && numF6 == 1)){
+            score = 40;
+            }
+        }
+        else if(val=="BtnFullHouse"){
+            scoreListVal = 12;
+            roll = "roll9";
+            if((numF1 == 3 || numF2 == 3 || numF3 == 3 || numF4 == 3 || numF5 == 3 || numF6 == 3) &&
+            (numF1 == 2 || numF2 == 2 || numF3 == 2 || numF4 == 2 || numF5 == 2 || numF6 == 2)){
+                score = 25;
+            }
+        }
+        else if(val=="BtnYahtzee"){
+            scoreListVal = 8;
+            roll = "roll12";
+            if(numF1 == 5 || numF2 == 5 || numF3 == 5 || numF4 == 5 || numF5 == 5 || numF6 == 5){
+                yahtzeeCount += 1;
+                validYahtzee = true;
+                console.log(yahtzeeCount);
+            }
+        }
+        // let container = document.getElementById(roll);
+        //     for (let i = 0; i < keep.length; i++){
+        //         let diceImg = document.createElement("img");
+        //         diceImg.setAttribute("src", keep[i]);
+        //         diceImg.setAttribute("data-index", i);
+        //         container.append(diceImg);
+        //     }
+        
+        let container = document.getElementById("bonus");
+        let checkMark = document.createElement("img");
+        checkMark.setAttribute("src", "checkMark.jpg");
+        var valIndex = buttonBools.indexOf(val);
+        console.log(valIndex);
+        // booleans to disable buttons and for bonus yahtzee
+        if(val == "BtnYahtzee" && validYahtzee == true && yahtzeeCount == 1){
+            score = ((yahtzeeCount-1)*100) + 50;
+            let container = document.getElementById(roll);
+            for (let i = 0; i < keep.length; i++){
+                let diceImg = document.createElement("img");
+                diceImg.setAttribute("src", keep[i]);
+                diceImg.setAttribute("data-index", i);
+                container.append(diceImg);
+            }
+            console.log("Yahtzee Condition #1");
+        } else if(val == "BtnYahtzee" && validYahtzee == true && yahtzeeCount < 4){
+            score = ((yahtzeeCount-1)*100) + 50;
+            console.log("Yahtzee Condition #2");
+            container.append(checkMark);
+        } else if(val == "BtnYahtzee" && validYahtzee == true && yahtzeeCount == 4){
+            score = ((yahtzeeCount-1)*100) + 50;
+            $("#BtnYahtzee").prop('disabled', true);
+            console.log("Yahtzee Condition #3");
+            buttonBools.splice(valIndex, 1);
+            container.append(checkMark);
+        } else if(val == "BtnYahtzee" && validYahtzee == false){
+            $("#BtnYahtzee").prop('disabled', true);
+            console.log("Yahtzee Condition #4");
+            buttonBools.splice(valIndex, 1);
+        } else if(val != "BtnYahtzee"){
+            console.log("Not Yahtzee");
+            let container = document.getElementById(roll);
+            for (let i = 0; i < keep.length; i++){
+                let diceImg = document.createElement("img");
+                diceImg.setAttribute("src", keep[i]);
+                diceImg.setAttribute("data-index", i);
+                container.append(diceImg);
+            }
+            buttonBools.splice(valIndex, 1);
+        }
+        console.log(buttonBools);
+        console.log(validYahtzee);
+        $(`#${val}`).prop("disabled", true);
+        console.log("Keep,length = ", keep.length);
+        if(keep.length > 0){
+            console.log("Keep length greater");
+            //Here is dice display
+            if(val != "BtnYahtzee"){
+                totalScore += score;
+            } else if( val == "BtnYahtzee") {
+                if(yahtzeeCount == 1){
+                    totalScore += 50;
+            } else if(yahtzeeCount > 1) {
+                totalScore += 100;
+            }
+            }
+            
+            console.log(scoreTypes[scoreListVal]);
+            document.getElementById(scoreTypes[scoreListVal]).innerHTML = score;
+            // if(roll.length == 5){
+            //     rollNum = parseInt(roll[4], 10);
+            //     dataListT.splice(rollNum, 1);
+            // } 
+            // else if(roll.length == 6){
+            //     rollNum = parseInt(roll.substring(4,6), 10);
+            //     dataListT.splice(rollNum, 1);
+            // }
+            // console.log(rollNum);
+            keep = [];
+        } 
+        console.log(dataListT);
+        drawKeep();
+        drawRoll();
+        console.log("The total score is " + totalScore + ".");
+        console.log(turn);
+        updateObject();
+        console.log(game);
+        turn += 1;
+        enableSubmit()
+        if(turn == 13){
+            $("#rollButton").prop('disabled', true);
+            $("#submitGame").prop('disabled', false);
+        }
+    }
+    //function to send data, 
+    //write a boolean that resets variables and stops 
+    //game after game is finished
+    function finishGame(){
+        var i = 0;
+        var imageToRemove;
+        scoreTypes = ["Aces", "Twos", "Threes", "Fours", "Fives", "Sixes", "SmallStrait", "LargeStrait", "Yahtzee", "Chance", "3ofaKind", "4ofaKind", "FullHouse"];
+        buttonBools = ["BtnAces", "BtnTwos", "BtnThrees", "BtnFours", "BtnFives", "BtnSixes", "BtnSmallStrait", "BtnLargeStrait", "BtnYahtzee", "BtnChance", "Btn3ofaKind", "Btn4ofaKind", "BtnFullHouse", "reRollButton"]
+        for(i=0; i<13; i++){
+            document.getElementById(`${scoreTypes[i]}`).innerHTML = 0;
+        }
+        enableSubmit()
+        console.log(scoreTypes.length);
+        $(".roll").empty();
+        // Submit game data to server here
+        game.clear();
+        console.log(game);
+        console.log(scoreTypes);
+        turn = 0;
+        $("#turn").text("Turn");
+        console.log(game);
+        $("#submitGame").prop('disabled', true);
+        modal.style.display = "block";
+    }
+    //script for modal functionality
+    var modal = document.getElementById("submitModal");
+    var btn = document.getElementById("submitGame");
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

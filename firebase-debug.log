@@ -1,0 +1,289 @@
+[debug] [2020-06-28T22:18:12.268Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:18:12.270Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:18:12.270Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:18:12.270Z] Platform:      win32
+[debug] [2020-06-28T22:18:12.270Z] Node Version:  v12.18.1
+[debug] [2020-06-28T22:18:12.271Z] Time:          Sun Jun 28 2020 17:18:12 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:18:12.271Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:18:12.271Z] 
+[debug] [2020-06-28T22:18:12.277Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:18:12.277Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:18:56.054Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-06-28T22:18:56.055Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-06-28T22:18:56.217Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:18:56 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-28T22:18:56.231Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:18:56.574Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:18:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:19:06.629Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-06-28T22:19:06.977Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Sun, 28 Jun 2020 22:19:06 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-06-28T22:19:33.148Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:19:33.150Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:19:33.151Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:19:33.151Z] Platform:      win32
+[debug] [2020-06-28T22:19:33.151Z] Node Version:  v12.18.1
+[debug] [2020-06-28T22:19:33.152Z] Time:          Sun Jun 28 2020 17:19:33 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:19:33.152Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:19:33.152Z] 
+[debug] [2020-06-28T22:19:33.158Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:19:33.159Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:19:43.946Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:19:44.262Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:19:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:19:54.424Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-06-28T22:19:54.613Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Sun, 28 Jun 2020 22:19:54 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-06-28T22:25:52.690Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:25:52.693Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:25:52.693Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:25:52.693Z] Platform:      win32
+[debug] [2020-06-28T22:25:52.693Z] Node Version:  v12.18.1
+[debug] [2020-06-28T22:25:52.694Z] Time:          Sun Jun 28 2020 17:25:52 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:25:52.694Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:25:52.694Z] 
+[debug] [2020-06-28T22:25:52.701Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:25:52.702Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:26:05.064Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:26:05.435Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:26:05 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:26:14.117Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-06-28T22:26:14.348Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Sun, 28 Jun 2020 22:26:14 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-06-28T22:28:09.803Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:28:09.806Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:28:09.807Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:28:09.807Z] Platform:      win32
+[debug] [2020-06-28T22:28:09.807Z] Node Version:  v12.18.1
+[debug] [2020-06-28T22:28:09.808Z] Time:          Sun Jun 28 2020 17:28:09 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:28:09.809Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:28:09.809Z] 
+[debug] [2020-06-28T22:28:09.821Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:28:09.822Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:28:17.780Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:28:18.143Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:28:17 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:28:23.500Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-06-28T22:28:23.688Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Sun, 28 Jun 2020 22:28:23 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-06-28T22:30:57.565Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:30:57.568Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:30:57.568Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:30:57.569Z] Platform:      win32
+[debug] [2020-06-28T22:30:57.569Z] Node Version:  v12.18.1
+[debug] [2020-06-28T22:30:57.570Z] Time:          Sun Jun 28 2020 17:30:57 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:30:57.570Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:30:57.570Z] 
+[debug] [2020-06-28T22:30:57.578Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:30:57.578Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:31:03.723Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:31:03.983Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:31:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:31:08.296Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-06-28T22:31:08.949Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Sun, 28 Jun 2020 22:31:08 GMT","content-type":"application/json; charset=utf-8","content-length":"161","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[debug] [2020-06-28T22:39:07.781Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:39:07.786Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:39:07.787Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:39:07.787Z] Platform:      win32
+[debug] [2020-06-28T22:39:07.787Z] Node Version:  v14.4.0
+[debug] [2020-06-28T22:39:07.789Z] Time:          Sun Jun 28 2020 17:39:07 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:39:07.789Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:39:07.790Z] 
+[debug] [2020-06-28T22:39:07.803Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:39:07.804Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:39:14.513Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:39:14.856Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:39:14 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:39:18.924Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
+[debug] [2020-06-28T22:40:35.276Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:40:35.282Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\zachh\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-06-28T22:40:35.283Z] CLI Version:   8.4.3
+[debug] [2020-06-28T22:40:35.283Z] Platform:      win32
+[debug] [2020-06-28T22:40:35.284Z] Node Version:  v14.4.0
+[debug] [2020-06-28T22:40:35.287Z] Time:          Sun Jun 28 2020 17:40:35 GMT-0500 (Central Daylight Time)
+[debug] [2020-06-28T22:40:35.287Z] ----------------------------------------------------------------------
+[debug] [2020-06-28T22:40:35.288Z] 
+[debug] [2020-06-28T22:40:35.310Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-28T22:40:35.311Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\zachh\OneDrive\Documents\YahtzeeAI
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2020-06-28T22:40:41.757Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2020-06-28T22:40:42.059Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 28 Jun 2020 22:40:42 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  Using project yahtzeeai-2020 (YahtzeeAI) 
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2020-06-28T22:40:45.817Z] >>> HTTP REQUEST GET https://yahtzeeai-2020.firebaseio.com/.settings/rules.json  
+ 
