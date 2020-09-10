@@ -237,6 +237,11 @@
     <td id="Chance">0</td>
     <td id="roll13" class="roll"></td>
 </tr>
+<tr>
+    <td>Total Score</td>
+    <td id="totalScoreTable">0</td>
+    <td></td>
+</tr>
 </table>
 <h2 id="turn">Turn</h2>
 <p>Dice to Re-Roll</p>
@@ -702,6 +707,7 @@
             // console.log(rollNum);
             keep = [];
         } 
+        document.getElementById("totalScoreTable").innerHTML = totalScore;
         console.log(dataListT);
         drawKeep();
         drawRoll();
