@@ -727,6 +727,8 @@
     //game after game is finished
     function finishGame(){
         var i = 0;
+        totalScore = 0;
+        document.getElementById("totalScoreTable") = totalScore;
         var imageToRemove;
         scoreTypes = ["Aces", "Twos", "Threes", "Fours", "Fives", "Sixes", "SmallStrait", "LargeStrait", "Yahtzee", "Chance", "3ofaKind", "4ofaKind", "FullHouse"];
         buttonBools = ["BtnAces", "BtnTwos", "BtnThrees", "BtnFours", "BtnFives", "BtnSixes", "BtnSmallStrait", "BtnLargeStrait", "BtnYahtzee", "BtnChance", "Btn3ofaKind", "Btn4ofaKind", "BtnFullHouse", "reRollButton"]
